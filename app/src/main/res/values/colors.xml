@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#0293dd</color>
+    <color name="colorPrimaryDark">#054674</color>
+    <color name="colorAccent">#9FCB39</color>
+
+    <color name="background">#f8f9fc</color>
+    <color name="line">#c5c2cc</color>
+
+    <color name="shadow_default">#c9c9cb</color>
+    <color name="shadow_info">#1d749e</color>
+    <color name="shadow_danger">#b35753</color>
+    <color name="shadow_warning">#b37b16</color>
+    <color name="shadow_purple">#845593</color>
+
 </resources>
