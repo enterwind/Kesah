@@ -10,6 +10,8 @@ import android.view.WindowManager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import vay.enterwind.kesah.activity.auth.IntroActivity;
+import vay.enterwind.kesah.activity.auth.LoginActivity;
 import vay.enterwind.kesah.activity.linimasa.LinimasaActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -29,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, LinimasaActivity.class));
+                startActivity(new Intent(SplashActivity.this, IntroActivity.class));
                 finish();
             }
         }, 2000);

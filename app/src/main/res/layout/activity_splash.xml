@@ -8,17 +8,6 @@
     android:orientation="vertical"
     tools:context="vay.enterwind.kesah.SplashActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/logo"
-        android:layout_marginTop="150dp"
-        android:paddingStart="90dp"
-        android:paddingEnd="90dp"
-        android:contentDescription="@string/app_name"
-        android:layout_centerHorizontal="true" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

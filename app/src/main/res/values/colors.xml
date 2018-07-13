@@ -6,11 +6,20 @@
 
     <color name="background">#f8f9fc</color>
     <color name="line">#c5c2cc</color>
+    <color name="line2">#F3F3F3</color>
+
+    <color name="warna_default">#e7e7e9</color>
+    <color name="warna_info">#0599df</color>
+    <color name="warna_danger">#f5756e</color>
+    <color name="warna_warning">#fecf5d</color>
+    <color name="warna_purple">#a97cbd</color>
+    <color name="warna_success">#6cbb6b</color>
 
     <color name="shadow_default">#c9c9cb</color>
     <color name="shadow_info">#1d749e</color>
     <color name="shadow_danger">#b35753</color>
     <color name="shadow_warning">#b37b16</color>
     <color name="shadow_purple">#845593</color>
+    <color name="shadow_success">#4a9149</color>
 
 </resources>
