@@ -27,7 +27,8 @@
         <activity android:name=".activity.auth.LoginActivity" />
         <activity android:name=".activity.auth.ForgotActivity" />
         <activity android:name=".activity.auth.RegisterActivity" />
-        <activity android:name=".activity.auth.IntroActivity"></activity>
+        <activity android:name=".activity.auth.IntroActivity" />
+        <activity android:name=".activity.linimasa.LinimasaActivity"></activity>
     </application>
 
 </manifest>
