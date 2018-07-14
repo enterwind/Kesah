@@ -4,6 +4,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="textColorError">@color/warna_danger</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -16,8 +17,10 @@
         <item name="android:textColorHint">@color/line</item>
         <item name="android:textSize">20sp</item>
         <item name="colorAccent">@color/line</item>
-        <item name="colorControlNormal">@color/line</item>
+        <item name="colorControlNormal">@color/warna_info</item>
         <item name="colorControlActivated">@color/warna_info</item>
+        <item name="android:colorFocusedHighlight">@color/warna_info</item>
+        <item name="android:paddingTop">5dp</item>
     </style>
 
 </resources>

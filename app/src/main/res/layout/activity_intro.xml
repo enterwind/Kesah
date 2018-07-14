@@ -9,11 +9,11 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="150dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/logo_putih" />
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logo" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,13 +40,14 @@
         android:textColor="@android:color/white" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        android:paddingTop="30dp"
-        android:background="@android:color/white"
-        android:id="@+id/linearLayout">
+        android:paddingTop="35dp"
+        android:paddingBottom="15dp"
+        android:background="@android:color/white">
 
         <LinearLayout
             android:id="@+id/btnFacebook"
@@ -59,7 +60,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
 
             <ImageView
                 android:layout_width="0dp"
@@ -90,7 +91,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
 
             <ImageView
                 android:layout_width="0dp"
@@ -148,5 +149,7 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <include layout="@layout/snippet_border_bottom" />
 
 </RelativeLayout>

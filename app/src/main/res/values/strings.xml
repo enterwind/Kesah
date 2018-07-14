@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Kesah</string>
+
+    <string name="err_nama">Kolom nama wajib diisi.</string>
+    <string name="err_email">Alamat email tida valid.</string>
+    <string name="err_password">Kata sandi minimal 5 karakter.</string>
+    <string name="err_password_repeat">Ulangi sandi tidak sama dengan kata sandi.</string>
+
+    <string name="facebook_app_id">YOUR_APP_ID</string>
+    <string name="fb_login_protocol_scheme">YOUR_THING</string>
 </resources>

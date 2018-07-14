@@ -6,35 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context="vay.enterwind.kesah.SplashActivity">
 
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp">
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/logo" />
 
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tagline"
-            android:fontFamily="@font/istok_web"
-            android:lineSpacingExtra="12dp"
-            android:text="KESAH"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/tagline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Keluhan Seputar Kota Harian"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textSize="12sp" />
-
-    </LinearLayout>
 
 </RelativeLayout>

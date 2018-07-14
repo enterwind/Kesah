@@ -1,81 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context="vay.enterwind.kesah.activity.auth.ForgotActivity">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="50dp"
+                android:orientation="vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lupa Kata Sandi ?"
+                    android:fontFamily="@font/suez_one"
+                    android:textSize="30sp"
+                    android:textColor="@color/colorPrimary"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/inputUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp"
+                    android:background="@null"
+                    android:theme="@style/TextLabel">
+                    <EditText
+                        android:id="@+id/txtUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="E-mail (surel)"
+                        android:inputType="textEmailAddress"
+                        android:fontFamily="@font/suez_one"
+                        android:background="@null"
+                        android:textColor="@android:color/black" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <View android:background="@color/line2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="50dp"
-        android:orientation="vertical">
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_bottom">
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/ic_arrow_left"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/icon_back"
+            tools:ignore="RtlHardcoded" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lupa Kata Sandi ?"
-            android:fontFamily="@font/suez_one"
-            android:textSize="30sp"
-            android:textColor="@color/colorPrimary"/>
+        <ImageView
+            android:id="@+id/btnKirim"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/icon_forward"
+            tools:ignore="RtlHardcoded" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/inputUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:background="@null"
-            android:theme="@style/TextLabel">
-            <EditText
-                android:id="@+id/txtUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="E-mail (surel)"
-                android:fontFamily="@font/suez_one"
-                android:background="@null"
-                android:textColor="@android:color/black" />
-        </android.support.design.widget.TextInputLayout>
+    </RelativeLayout>
 
-    </LinearLayout>
+    <include layout="@layout/snippet_border_bottom" />
 
-    <View android:background="@color/line2"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"/>
-
-    <LinearLayout
-        android:id="@+id/btnKirim"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:background="@drawable/btn_info"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="10dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="Kirimi saya kata sandi baru"
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/suez_one"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
