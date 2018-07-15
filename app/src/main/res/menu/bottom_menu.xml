@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ic_linimasa"
+        android:icon="@drawable/icon_play"
+        android:title="Linimasa" />
+
+    <item
+        android:id="@+id/ic_fasilitas"
+        android:icon="@drawable/icon_play"
+        android:title="Fasilitas" />
+
+    <item
+        android:id="@+id/ic_laporan"
+        android:icon="@drawable/icon_play"
+        android:title="Laporan" />
+
+    <item
+        android:id="@+id/ic_obrolan"
+        android:icon="@drawable/icon_play"
+        android:title="Obrolan" />
+
+    <item
+        android:id="@+id/ic_profil"
+        android:icon="@drawable/icon_play"
+        android:title="Profil" />
+
+</menu>

@@ -1,5 +1,6 @@
 package vay.enterwind.kesah.activity.linimasa;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,12 +10,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import vay.enterwind.kesah.R;
+import vay.enterwind.kesah.activity.BaseActivity;
 import vay.enterwind.kesah.activity.auth.IntroActivity;
 import vay.enterwind.kesah.library.TokenManager;
 
-public class LinimasaActivity extends AppCompatActivity {
+public class LinimasaActivity extends BaseActivity {
 
-    TokenManager tokenManager;
+    private static final String TAG = LinimasaActivity.class.getSimpleName();
+    private Context mContext = LinimasaActivity.this;
+    private static final int ACTIVITY_NUM = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +26,8 @@ public class LinimasaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_linimasa);
         ButterKnife.bind(this);
 
-        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
+
+        setupBottomNavigationView(mContext, ACTIVITY_NUM);
     }
 
-    @OnClick(R.id.logout)
-    void keluar() {
-        tokenManager.deleteToken();
-        startActivity(new Intent(LinimasaActivity.this, IntroActivity.class));
-        finish();
-    }
 }

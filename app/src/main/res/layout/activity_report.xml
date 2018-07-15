@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/shadow_success">
+    android:background="@color/shadow_info">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/warna_success">
+        android:background="@color/warna_info">
         <TextView
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
@@ -18,7 +18,7 @@
             android:paddingStart="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Linimasa"
+            android:text="Laporan"
             android:textStyle="bold"
             android:textSize="30sp"
             android:textColor="@android:color/white"/>
