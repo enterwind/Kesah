@@ -24,7 +24,9 @@ public interface ApiService {
 
     @POST("login")
     @FormUrlEncoded
-    Call<AccessToken> login(@Field("username") String username, @Field("password") String password);
+    Call<AccessToken> login(
+            @Field("email") String email,
+            @Field("password") String password);
 
     @POST("social_auth")
     @FormUrlEncoded

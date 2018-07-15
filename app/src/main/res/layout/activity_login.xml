@@ -38,17 +38,19 @@
                     android:textColor="@color/colorPrimary"/>
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/inputUsername"
+                    android:id="@+id/inputEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="100dp"
                     android:background="@null"
                     android:theme="@style/TextLabel">
                     <EditText
-                        android:id="@+id/txtUsername"
+                        android:id="@+id/txtEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="E-mail (surel)"
+                        android:maxLines="1"
+                        android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
                         android:fontFamily="@font/suez_one"
                         android:background="@null"
@@ -56,17 +58,20 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/inpuPassword"
+                    android:id="@+id/inputSandi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:background="@null"
+                    app:passwordToggleEnabled="true"
                     android:theme="@style/TextLabel">
                     <EditText
                         android:id="@+id/txtPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Kata sandi"
+                        android:maxLines="1"
+                        android:imeOptions="actionGo"
                         android:fontFamily="@font/suez_one"
                         android:background="@null"
                         android:textColor="@android:color/black" />

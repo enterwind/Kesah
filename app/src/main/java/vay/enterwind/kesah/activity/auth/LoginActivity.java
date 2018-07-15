@@ -2,6 +2,7 @@ package vay.enterwind.kesah.activity.auth;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.roger.catloadinglibrary.CatLoadingView;
 
 import java.util.List;
 import java.util.Map;
@@ -50,13 +52,16 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.btnMasuk) ImageView btnMasuk;
     @BindView(R.id.btnLupa) TextView btnLupa;
 
-    @BindView(R.id.txtUsername) EditText txtUsername;
     @BindView(R.id.txtPassword) EditText txtPassword;
+
+    @BindView(R.id.inputEmail) TextInputLayout inputEmail;
+    @BindView(R.id.inputSandi) TextInputLayout inputSandi;
 
     ApiService service;
     TokenManager tokenManager;
     AwesomeValidation validator;
     Call<AccessToken> call;
+    CatLoadingView loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
         service = RetrofitBuilder.createService(ApiService.class);
         tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
         validator = new AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT);
-        setupRules();
+        loading = new CatLoadingView();
 
         if(tokenManager.getToken().getAccessToken() != null){
             startActivity(new Intent(LoginActivity.this, LinimasaActivity.class));
@@ -92,11 +97,13 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.btnMasuk)
     void login() {
 
-        String email = txtUsername.getText().toString();
-        String password = txtPassword.getText().toString();
+        loading.show(getSupportFragmentManager(), "");
 
-        txtUsername.setError(null);
-        txtPassword.setError(null);
+        String email = inputEmail.getEditText().getText().toString();
+        String password = inputSandi.getEditText().getText().toString();
+
+        inputEmail.setError(null);
+        inputSandi.setError(null);
 
         validator.clear();
 
@@ -119,11 +126,12 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, apiError.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
-
+                    loading.dismiss();
                 }
                 @Override
                 public void onFailure(Call<AccessToken> call, Throwable t) {
                     Log.w(TAG, "onFailure: " + t.getMessage());
+                    loading.dismiss();
                 }
             });
 
@@ -132,23 +140,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleErrors(ResponseBody response) {
-
         ApiError apiError = Utils.converErrors(response);
-
         for (Map.Entry<String, List<String>> error : apiError.getErrors().entrySet()) {
-            if (error.getKey().equals("username")) {
-                txtUsername.setError(error.getValue().get(0));
+            if (error.getKey().equals("email")) {
+                inputEmail.setError(error.getValue().get(0));
             }
             if (error.getKey().equals("password")) {
-                txtPassword.setError(error.getValue().get(0));
+                inputSandi.setError(error.getValue().get(0));
             }
         }
-
-    }
-
-    public void setupRules() {
-        validator.addValidation(this, R.id.txtUsername, RegexTemplate.NOT_EMPTY, R.string.err_email);
-        validator.addValidation(this, R.id.txtPassword, RegexTemplate.NOT_EMPTY, R.string.err_password);
+        loading.dismiss();
     }
 
     @Override
