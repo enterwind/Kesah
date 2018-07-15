@@ -12,7 +12,7 @@ public class ProfilActivity extends BaseActivity {
 
     private static final String TAG = ProfilActivity.class.getSimpleName();
     private Context mContext = ProfilActivity.this;
-    private static final int ACTIVITY_NUM = 4;
+    private static final int ACTIVITY_NUM = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

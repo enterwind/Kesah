@@ -12,7 +12,7 @@ public class ReportActivity extends BaseActivity {
 
     private static final String TAG = ReportActivity.class.getSimpleName();
     private Context mContext = ReportActivity.this;
-    private static final int ACTIVITY_NUM = 2;
+    private static final int ACTIVITY_NUM = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

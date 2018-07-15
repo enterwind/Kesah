@@ -3,17 +3,21 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="85dp"
         android:layout_alignParentBottom="true">
 
         <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="110dp"
             android:id="@+id/bottomNav"
-            android:background="@android:color/white"
-            app:itemIconTint="@color/warna_info"
+            android:background="@android:color/transparent"
             app:itemTextColor="@color/warna_info"
-            app:menu="@menu/bottom_menu">
+            app:menu="@menu/bottom_menu"
+            android:paddingRight="30dp"
+            android:paddingEnd="30dp"
+            android:paddingLeft="30dp"
+            android:paddingStart="30dp"
+            app:itemBackground="@android:color/transparent">
 
         </com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
 

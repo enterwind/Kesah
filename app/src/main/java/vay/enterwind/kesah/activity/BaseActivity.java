@@ -1,10 +1,11 @@
 package vay.enterwind.kesah.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,9 +51,15 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    private void disableAllAnimation(BottomNavigationViewEx bnve) {
+        bnve.enableAnimation(false);
+        bnve.enableShiftingMode(false);
+        bnve.enableItemShiftingMode(false);
+    }
+
     public void setupBottomNavigationView(Context context, int ACTIVITY_NUM){
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNav);
-        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx, getApplicationContext());
         BottomNavigationViewHelper.enableNavigation(context, this, bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);

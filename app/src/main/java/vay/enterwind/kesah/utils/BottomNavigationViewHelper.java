@@ -3,9 +3,11 @@ package vay.enterwind.kesah.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -28,12 +30,16 @@ public class BottomNavigationViewHelper {
      * Setup Bottom Navigation View
      * @param bottomNavigationViewEx
      */
-    public static void setupBottomNavigationView(BottomNavigationViewEx bottomNavigationViewEx){
+    public static void setupBottomNavigationView(BottomNavigationViewEx bottomNavigationViewEx, final Context mActivity){
+
         bottomNavigationViewEx.enableAnimation(false);
         bottomNavigationViewEx.enableShiftingMode(false);
         bottomNavigationViewEx.enableItemShiftingMode(false);
         bottomNavigationViewEx.setTextSize(10);
         bottomNavigationViewEx.setTextVisibility(true);
+        bottomNavigationViewEx.setItemIconTintList(null);
+
+        bottomNavigationViewEx.setIconSize(50,50);
     }
 
     /**
@@ -55,25 +61,11 @@ public class BottomNavigationViewHelper {
                         callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         break;
 
-                    case R.id.ic_fasilitas:
-                        Intent inbox  = new Intent(context, FacilityActivity.class);
-                        context.startActivity(inbox);
-                        callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        inbox.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                        break;
-
                     case R.id.ic_laporan:
                         Intent intent2  = new Intent(context, ReportActivity.class);
                         context.startActivity(intent2);
                         callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                        break;
-
-                    case R.id.ic_obrolan:
-                        Intent intent3  = new Intent(context, ChatActivity.class);
-                        context.startActivity(intent3);
-                        callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        intent3.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         break;
 
                     case R.id.ic_profil:

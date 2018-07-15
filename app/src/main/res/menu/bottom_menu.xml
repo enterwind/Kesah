@@ -3,27 +3,17 @@
 
     <item
         android:id="@+id/ic_linimasa"
-        android:icon="@drawable/icon_play"
-        android:title="Linimasa" />
-
-    <item
-        android:id="@+id/ic_fasilitas"
-        android:icon="@drawable/icon_play"
-        android:title="Fasilitas" />
+        android:icon="@drawable/selector_timeline"
+        android:title="" />
 
     <item
         android:id="@+id/ic_laporan"
-        android:icon="@drawable/icon_play"
-        android:title="Laporan" />
-
-    <item
-        android:id="@+id/ic_obrolan"
-        android:icon="@drawable/icon_play"
-        android:title="Obrolan" />
+        android:icon="@drawable/selector_report"
+        android:title="" />
 
     <item
         android:id="@+id/ic_profil"
-        android:icon="@drawable/icon_play"
-        android:title="Profil" />
+        android:icon="@drawable/selector_profile"
+        android:title="" />
 
 </menu>
