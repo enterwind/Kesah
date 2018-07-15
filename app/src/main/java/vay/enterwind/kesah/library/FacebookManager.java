@@ -3,6 +3,7 @@ package vay.enterwind.kesah.library;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -115,6 +116,7 @@ public class FacebookManager {
                     tokenManager.saveToken(response.body());
                     listener.onSuccess();
                 }else{
+                    Log.d(TAG, "onResponse: "+response);
                     listener.onError("An error occured");
                 }
             }

@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.roger.catloadinglibrary.CatLoadingView;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -63,6 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
     Call<AccessToken> call;
     AwesomeValidation validator;
     TokenManager tokenManager;
+    CatLoadingView loading;
 
     boolean agree = false;
 
@@ -74,8 +76,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         service = RetrofitBuilder.createService(ApiService.class);
         validator = new AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT);
-        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
+        loading = new CatLoadingView();
 
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
         if(tokenManager.getToken().getAccessToken() != null){
             startActivity(new Intent(RegisterActivity.this, LinimasaActivity.class));
             finish();
@@ -94,6 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnSimpan)
     void simpan() {
+        loading.show(getSupportFragmentManager(), "");
 
         String nama = inputNama.getEditText().getText().toString();
         String email = inputEmail.getEditText().getText().toString();
@@ -120,14 +124,17 @@ public class RegisterActivity extends AppCompatActivity {
                     } else {
                         handleErrors(response.errorBody());
                     }
+                    loading.dismiss();
                 }
                 @Override
                 public void onFailure(Call<AccessToken> call, Throwable t) {
                     Log.w(TAG, "onFailure: " + t.getMessage());
+                    loading.dismiss();
                 }
             });
         } else {
             Toast.makeText(mContext, "Anda belum menyetujui syarat dan ketentuan.", Toast.LENGTH_SHORT).show();
+            loading.dismiss();
         }
     }
 
@@ -147,6 +154,7 @@ public class RegisterActivity extends AppCompatActivity {
                 inputUlangiSandi.setError(error.getValue().get(0));
             }
         }
+        loading.dismiss();
     }
 
     @Override

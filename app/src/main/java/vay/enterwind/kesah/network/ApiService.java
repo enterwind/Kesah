@@ -28,18 +28,20 @@ public interface ApiService {
             @Field("email") String email,
             @Field("password") String password);
 
-    @POST("social_auth")
+    @POST("social")
     @FormUrlEncoded
-    Call<AccessToken> socialAuth(@Field("nama") String nama,
-                                 @Field("email") String email,
-                                 @Field("provider") String provider,
-                                 @Field("provider_user_id") String providerUserId);
+    Call<AccessToken> socialAuth(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("provider") String provider,
+            @Field("provider_user_id") String providerUserId);
 
     @POST("refresh")
     @FormUrlEncoded
-    Call<AccessToken> refresh(@Field("refresh_token") String refreshToken);
+    Call<AccessToken> refresh(
+            @Field("refresh_token") String refreshToken);
 
-    @GET("posts")
+    @GET("laporan")
     Call<LaporanResponse> laporan();
 
 }

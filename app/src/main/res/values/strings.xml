@@ -6,6 +6,6 @@
     <string name="err_password">Kata sandi minimal 5 karakter.</string>
     <string name="err_password_repeat">Ulangi sandi tidak sama dengan kata sandi.</string>
 
-    <string name="facebook_app_id">YOUR_APP_ID</string>
-    <string name="fb_login_protocol_scheme">YOUR_THING</string>
+    <string name="facebook_app_id">1042503285917865</string>
+    <string name="fb_login_protocol_scheme">fb1042503285917865</string>
 </resources>

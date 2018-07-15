@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:layout_gravity="center_vertical"
-                android:text="Continue with Facebook"
+                android:text="Lanjutkan via Facebook"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/suez_one"/>
 
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:layout_gravity="center_vertical"
-                android:text="Continue with Google"
+                android:text="Lanjutkan via Google"
                 android:fontFamily="@font/suez_one"/>
 
         </LinearLayout>

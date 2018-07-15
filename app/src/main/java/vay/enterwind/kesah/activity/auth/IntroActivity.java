@@ -17,10 +17,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
+import com.roger.catloadinglibrary.CatLoadingView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
 import vay.enterwind.kesah.R;
+import vay.enterwind.kesah.activity.linimasa.LinimasaActivity;
+import vay.enterwind.kesah.entities.AccessToken;
+import vay.enterwind.kesah.library.FacebookManager;
+import vay.enterwind.kesah.library.TokenManager;
+import vay.enterwind.kesah.network.ApiService;
+import vay.enterwind.kesah.network.RetrofitBuilder;
 import vay.enterwind.kesah.tested.likeanimation.LikeAnimationActivity;
 import vay.enterwind.kesah.utils.Animation;
 
@@ -35,58 +45,50 @@ public class IntroActivity extends AppCompatActivity {
     @BindView(R.id.btnRegistrasi) TextView btnRegistrasi;
     @BindView(R.id.btnMasuk) TextView btnMasuk;
 
-    private static final int ANIM_DURATION_TOOLBAR = 300;
     @BindView(R.id.linearLayout) LinearLayout linearLayout;
-    private static final Interpolator INTERPOLATOR = new AccelerateInterpolator();
+
+    ApiService service;
+    TokenManager tokenManager;
+    Call<AccessToken> call;
+    FacebookManager facebookManager;
+    CatLoadingView loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_intro);
         ButterKnife.bind(this);
 
+        loading = new CatLoadingView();
+        service = RetrofitBuilder.createService(ApiService.class);
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
+        facebookManager = new FacebookManager(service, tokenManager);
 
+        if(tokenManager.getToken().getAccessToken() != null){
+            startActivity(new Intent(IntroActivity.this, LinimasaActivity.class));
+            finish();
+        }
     }
-
-//    private void startIntroAnimation() {
-//
-//        linearLayout.getHeight();
-//        btnRegistrasi.setTranslationY(100);
-//        btnMasuk.setTranslationY(100);
-//
-//        btnRegistrasi.animate()
-//                .translationY(0)
-//                .setDuration(ANIM_DURATION_TOOLBAR)
-//                .setStartDelay(300);
-//        btnMasuk.animate()
-//                .translationY(0)
-//                .setDuration(ANIM_DURATION_TOOLBAR)
-//                .setStartDelay(400);
-//
-//        btnFacebook.setScaleX(0);
-//        btnFacebook.setScaleY(0);
-//        btnFacebook.animate()
-//                .scaleY(1)
-//                .scaleX(1)
-//                .setDuration(250)
-//                .setInterpolator(INTERPOLATOR)
-//                .setStartDelay(500)
-//                .start();
-//
-//        btnGoogle.setScaleX(0);
-//        btnGoogle.setScaleY(0);
-//        btnGoogle.animate()
-//                .scaleY(1)
-//                .scaleX(1)
-//                .setDuration(200)
-//                .setInterpolator(INTERPOLATOR)
-//                .setStartDelay(700)
-//                .start();
-//    }
 
     @OnClick(R.id.btnFacebook)
     void onFacebookClick() {
-        Toast.makeText(mContext, "Facebook Click!", Toast.LENGTH_SHORT).show();
+        loading.show(getSupportFragmentManager(), "");
+
+        facebookManager.login(this, new FacebookManager.FacebookLoginListener() {
+            @Override
+            public void onSuccess() {
+                facebookManager.clearSession();
+                startActivity(new Intent(IntroActivity.this, LinimasaActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onError(String message) {
+                Toast.makeText(IntroActivity.this, message, Toast.LENGTH_SHORT).show();
+                loading.dismiss();
+            }
+        });
     }
 
     @OnClick(R.id.btnGoogle)
@@ -124,6 +126,22 @@ public class IntroActivity extends AppCompatActivity {
                 }
             }, 2000);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        facebookManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (call != null) {
+            call.cancel();
+            call = null;
+        }
+        facebookManager.onDestroy();
     }
 
 }
